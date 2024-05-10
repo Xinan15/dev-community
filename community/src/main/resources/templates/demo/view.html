@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<!--这里不是静态的 html 文件，因此需要声明模版-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher List</title>
+</head>
+<body>
+<p th:text="${name}"></p>
+<!--此处 name 调用 model 传过来的值-->
+<p th:text="${age}"></p>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!--此网页我们用于新建/增加一个学生，提交他的信息给服务器-->
+<!--http://localhost:8080/community/html/student.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a student</title>
+</head>
+<body>
+<form method="post" action="/community/alpha/student">
+    <p>
+        Name: <input type="text" id="name" name="name">
+    </p>
+
+    <p>
+        Age: <input type="text" id="age" name="age">
+    </p>
+    <p>
+        <input type="submit" onclick="submitStudent()" value="submit">
+    </p>
+
+</form>
+
+</body>
+</html>

@@ -1,36 +1,31 @@
 package com.xinan.community.community.service;
 
+// Service 层 --> 业务逻辑层 --> 用于处理业务逻辑
+// Controller 调用 Service
+// Service  调用 Dao
 
-// Service 层 --> 业务逻辑层
-// 用于处理业务逻辑
-
+import com.xinan.community.community.dao.AlphaDao;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-// @Service 注解是 Spring 提供的用于标识 Service 组件的注解
-// Spring 容器，可以管理 bean 的生命周期，包括 实例化、初始化、销毁 等
-
 @Scope("singleton")
-// @Scope 注解是 Spring 提供的用于指定 bean 的作用域的注解
-// singleton 单例模式，一个容器中只有一个实例，只有一个实例会被创建
-// prototype 原型模式，每次从容器中获取 bean 时，都会创建一个新的实例
+// @Scope 用于指定 bean 的作用域
+// singleton 单例模式 / prototype 原型模式
 
 public class AlphaService {
 
-    public AlphaService() {
-        System.out.println("instantiated AlphaService");  // 实例化
-    }
+    // 因为 Service 需要调用 Dao，所以此处需要注入 Dao 到 Service
+    @Autowired
+    // @Autowired 注解是 Spring 提供的用于依赖注入的注解
+    // @Autowired 注解告诉 Spring 要将 alphaDao 字段设置为 Spring 容器中符合 AlphaDao 类型的 Bean 实例
 
-    @PostConstruct
-    // @PostConstruct 注解是 Spring 提供的用于初始化的注解
-    public void init() {
-        System.out.println("initialised AlphaService");  // 初始化
-    }
+    private AlphaDao alphaDao;
 
-    @PostConstruct
-    public void destroy() {
-        System.out.println("destroyed AlphaService");  // 销毁
+    // 依赖注入后，可以调用 AlphaDao 的 select 方法
+    public String find() {
+        return alphaDao.select();
     }
 }
