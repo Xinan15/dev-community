@@ -1,10 +1,10 @@
-package com.example.api;
+package com.xinan.community.community;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiApplicationTests {
+class CommunityApplicationTests {
 
 	@Test
 	void contextLoads() {

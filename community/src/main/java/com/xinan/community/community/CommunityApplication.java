@@ -1,13 +1,13 @@
-package com.example.api;
+package com.xinan.community.community;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiApplication {
+public class CommunityApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiApplication.class, args);
+		SpringApplication.run(CommunityApplication.class, args);
 	}
 
 }
