@@ -56,3 +56,19 @@
 ## Thymeleaf
 - `Thymeleaf` 是一种模板引擎。
 - 接受 `模版文件` 与 `Model` 对象中的数据，生成动态的 HTML 页面。
+
+## MyBatis
+- `MyBatis` 是一种持久层框架，用于与数据库交互。
+- `MyBatis - Spring` 整合，可以简化数据库操作。
+
+### MyBatis 核心组件
+1. `SqlSessionFactory` 用于创建 `SqlSession` 对象。
+2. `SqlSession` 用于执行 SQL 语句。
+3. `xml` 配置文件：用于配置 SQL 语句。
+- `SqlSessionFactory`， `SqlSession`，`.xml` 文件，这三个组件在 Spring 中整合，不需要手动创建。
+
+4. `Mapper 接口` / `DAO 接口` ：用于定义 SQL 语句。
+- 只需要定义接口，不需要实现接口，MyBatis 会自动为接口生成实现类。
+5. `Mapper 映射器 / Mapper.xml` ：用于编写 SQL 语句，并将 SQL 和实体类映射的组件。
+
+- 示例：使用 MyBatis 对用户表进行 CRUD 操作。
