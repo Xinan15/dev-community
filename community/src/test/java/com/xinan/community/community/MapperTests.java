@@ -1,6 +1,8 @@
 package com.xinan.community.community;
 
+import com.xinan.community.community.dao.DiscussPostMapper;
 import com.xinan.community.community.dao.UserMapper;
+import com.xinan.community.community.entity.DiscussPost;
 import com.xinan.community.community.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -17,6 +20,11 @@ import java.util.Date;
 public class MapperTests {
     @Autowired
     private UserMapper userMapper;
+    // 将 UserMapper 注入进来
+
+    @Autowired
+    private DiscussPostMapper discussPostMapper;
+    // 将 DiscussPostMapper 注入进来
 
     @Test
     public void testSelectUser() {
@@ -57,5 +65,21 @@ public class MapperTests {
 
         rows = userMapper.updatePassword(150, "hello");
         System.out.println(rows);
+    }
+
+    @Test
+    public void testSelectPosts() {
+       List<DiscussPost> list = discussPostMapper.selectDiscussPosts(149, 0, 10);
+       for(DiscussPost post : list) {
+           System.out.println(post);
+       }
+       // 这里是一个增强的 for 循环，用于遍历集合
+         // 增强 for 循环只能用于访问集合或数组中的元素，不能用于修改集合或数组中的元素
+         // 语法：for(元素类型 元素变量 : 遍历对象) {循环体}
+         // 相当于 for(int i = 0; i < list.size(); i++) {DiscussPost post = list.get(i); System.out.println(post);}
+
+        int rows = discussPostMapper.selectDiscussPostRows(0);
+        System.out.println(rows);
+
     }
 }
